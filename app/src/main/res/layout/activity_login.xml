@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.app.iwitx.viewmodel.AndroidViewModel" />
+
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/DP10"
+    tools:context=".ui.LoginActivity">
+
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textColor="@color/black"
+       android:layout_marginTop="@dimen/DP110"
+       android:textSize="@dimen/DP40"
+       android:textStyle="bold"
+       android:text="@string/login"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/DP10"
+        android:textSize="@dimen/DP15"
+        android:text="@string/login_text"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/DP40"
+        app:cardCornerRadius="@dimen/DP10"
+        android:elevation="@dimen/DP20"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:hint="@string/user"
+                android:padding="@dimen/DP10"
+                android:background="@android:color/transparent"
+                android:text="@={data.userid}"
+                android:layout_height="@dimen/DP50"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/DP10"
+        app:cardCornerRadius="@dimen/DP10"
+        android:elevation="@dimen/DP10"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/DP10"
+        android:hint="@string/password"
+        android:padding="@dimen/DP10"
+        android:background="@android:color/transparent"
+        android:text="@={data.password}"
+        android:layout_height="@dimen/DP50"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_width="@dimen/DP150"
+        android:layout_height="@dimen/DP50"
+        android:layout_gravity="right"
+        android:textColor="@color/white"
+        android:onClick="@{(v) -> data.loggin(v)}"
+        android:layout_marginTop="@dimen/DP40"
+        android:background="@drawable/button_background"
+        android:text="@string/login"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="bottom"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:clickable="true"
+            android:layout_marginTop="@dimen/DP15"
+            android:layout_height="wrap_content"
+            android:text="@string/register_text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorAccent"
+            android:clickable="true"
+            android:id="@+id/signup"
+
+            android:layout_marginTop="@dimen/DP15"
+            android:layout_height="wrap_content"
+            android:text="@string/register_user"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</layout>
