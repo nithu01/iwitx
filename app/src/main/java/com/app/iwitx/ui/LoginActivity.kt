@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.app.iwitx.AuthListener
 import com.app.iwitx.R
+import com.app.iwitx.config.PrefManager
 import com.app.iwitx.config.SessionManager
 import com.app.iwitx.config.config
 import com.app.iwitx.databinding.ActivityLoginBinding
@@ -23,13 +24,11 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     var dataModel : AndroidViewModel? =null
     var activityLoginBinding : ActivityLoginBinding ?=null
     var textView : TextView?=null
-    var androidViewModel = AndroidViewModel();
     var session: SessionManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
-
         textView?.setOnClickListener{
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
@@ -45,6 +44,7 @@ class LoginActivity : AppCompatActivity(), AuthListener {
 
         textView = findViewById(R.id.signup)
     }
+
     override fun onStarted() {
 
     }
@@ -53,59 +53,105 @@ class LoginActivity : AppCompatActivity(), AuthListener {
 
     }
 
+    /* ON LOGIN FAILURE*/
     override fun onFailure(message: String?) {
         Toast.makeText(this@LoginActivity, "Failure Data" + message, Toast.LENGTH_SHORT).show()
 
     }
 
+    /* ON LOGIN SUCCESS*/
     override fun onSuccessdata(message: Response?) {
 
     }
-//
-//    override fun onSuccessdata(message: String?) {
-//        Toast.makeText(this@LoginActivity,"success data"+message, Toast.LENGTH_SHORT).show()
-//
 
     override fun onloginsuccess(data: UserData?) {
-//    }
+
         Toast.makeText(this@LoginActivity, "" + data?.message, Toast.LENGTH_SHORT).show()
 
-        // Toast.makeText(this@LoginActivity,""+data?.status+"\n"+data?.message, Toast.LENGTH_SHORT).show()
+         Toast.makeText(this@LoginActivity,""+data?.data?.id, Toast.LENGTH_SHORT).show()
         if(data?.status==1){
+//            var userdata = Data(data.data.id,
+//                   data.data.userId,
+//                   data.data.userType,
+//                   data.data.kycStatus,
+//                   data.data.addrStatus,
+//                   data.data.bankStatus,
+//                   data.data.status,
+//                   data.data.id,
+//                   data.data.id,
+//                   data.data.id,
+//                   data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//            )
+//
+//            var userdata = Data(data.data.id,
+//                    data.data.userId,
+//                    data.data.userType,
+//                    data.data.kycStatus,
+//                    data.data.addrStatus,
+//                    data.data.bankStatus,
+//                    data.data.status,
+//                    data.data.id,
+//                   data.data.mob,
+//                   data.data.email,
+//                   data.data.createDate,
+//                   data.data.mainW,
+//                   data.data.aepsW,
+//                   data.data.matmW,
+//                   data.data.commW,
+//                    data.data.dob,
+//                   data.data.id,
+//                   data.data.id,
+//                   data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,
+//                    data.data.id,)
+
            var userdata = Data(data.data.id,
-                   data.data.userId,
-                   data.data.userType,
-                   data.data.addrStatus,
-                   data.data.kycStatus,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id,
+                   data.data.id)
 
-                   data.data.bankStatus,
-                   data.data.status,
-                   data.data.name,
-                   data.data.mob,
-                   data.data.email,
-                   data.data.createDate,
-                   data.data.mainW,
-                   data.data.aepsW,
-           data.data.matmW,
-           data.data.commW,
-           data.data.dob,
-           data.data.gender,
-                   data.data.villCity,
-                   data.data.address,
-           data.data.pincode,
-           data.data.aadharImage,
-           data.data.panImage,
-           data.data.profileImage,
-           data.data.chequeImage,
-           data.data.lastLogin,
-           data.data.aepsStatus,
-           data.data.aepsEkycStatus)
             session!!.setLogin(true)
-            androidViewModel.getdata(config.key, config.secret).observe(
-                this@LoginActivity,
-                Observer { data ->
+            PrefManager.getInstance(this@LoginActivity).userLogin(userdata)
+            startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
 
-                })
         }else{
             Toast.makeText(this@LoginActivity, "" + data?.message, Toast.LENGTH_SHORT).show()
         }

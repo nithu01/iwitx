@@ -11,7 +11,7 @@ data class Data (
         val addrStatus : String,
         val bankStatus : String,
         val status : String,
-        val name : String,
+
         val mob : String,
         val email : String,
         val createDate : String,
@@ -19,16 +19,12 @@ data class Data (
         val aepsW : String,
         val matmW : String,
         val commW : String,
-        val dob : String,
-        val gender : String,
-        val villCity : String,
-        val address : String,
-        val pincode : String,
+
         val aadharImage : String,
         val panImage : String,
         val profileImage : String,
         val chequeImage : String,
-        val lastLogin : String,
+
         val aepsStatus : String,
         val aepsEkycStatus : String
 )
