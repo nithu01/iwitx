@@ -69,32 +69,32 @@ class LoginActivity : AppCompatActivity(), AuthListener {
 
 
         if(data?.status == "1"){
-           var userdata = Data(
-               data.data.id,
-               data.data.userId,
-               data.data.userType,
-               data.data.kycStatus,
-               data.data.addrStatus,
-               data.data.bankStatus,
-               data.data.status,
-               data.data.mob,
-               data.data.email,
-               data.data.createDate,
-               data.data.mainW,
-               data.data.aepsW,
-               data.data.matmW,
-               data.data.commW,
-               data.data.aadharImage,
-               data.data.panImage,
-               data.data.profileImage,
-               data.data.chequeImage,
-               data.data.aepsStatus,
-               data.data.aepsEkycStatus
-           )
-            Toast.makeText(this@LoginActivity,""+userdata.id, Toast.LENGTH_SHORT).show()
+//           var userdata = Data(
+//               data.data.id,
+//               data.data.userId,
+//               data.data.userType,
+//               data.data.kycStatus,
+//               data.data.addrStatus,
+//               data.data.bankStatus,
+//               data.data.status,
+//               data.data.mob,
+//               data.data.email,
+//               data.data.createDate,
+//               data.data.mainW,
+//               data.data.aepsW,
+//               data.data.matmW,
+//               data.data.commW,
+//               data.data.aadharImage,
+//               data.data.panImage,
+//               data.data.profileImage,
+//               data.data.chequeImage,
+//               data.data.aepsStatus,
+//               data.data.aepsEkycStatus
+//           )
+         //   Toast.makeText(this@LoginActivity,""+userdata.id, Toast.LENGTH_SHORT).show()
             session!!.setLogin(true)
-            Prefmanager.getInstance(this@LoginActivity).userLogin(userdata)
-            startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
+          //  Prefmanager.getInstance(this@LoginActivity).userLogin(userdata)
+            startActivity(Intent(this@LoginActivity,DashboardActivity::class.java).putExtra("userId",data.data.userId))
 
         }else{
             Toast.makeText(this@LoginActivity, "" + data?.message, Toast.LENGTH_SHORT).show()
