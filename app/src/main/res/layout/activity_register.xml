@@ -18,21 +18,21 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:textStyle="bold"
-            android:layout_marginLeft="@dimen/DP10"
             android:layout_height="wrap_content"
-            android:text="@string/create_account"
-            android:gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/DP10"
             android:layout_marginTop="@dimen/DP95"
+            android:gravity="center_horizontal"
+            android:text="@string/create_account"
+            android:textColor="@color/black"
             android:textSize="@dimen/DP30"
-            android:textColor="@color/black" />
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/register_layout"
             android:orientation="vertical"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_margin="@dimen/DP10">
 
      <androidx.cardview.widget.CardView
@@ -122,7 +122,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/DP30"
             android:id="@+id/otp_layout"

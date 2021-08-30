@@ -15,7 +15,8 @@
         android:theme="@style/Theme.Iwitx"
         android:usesCleartextTraffic="true" >
 
-        <activity android:name=".ui.Dashboard" />
+        <activity android:name=".ui.Dashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.ForgetPassword"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -28,17 +29,17 @@
         <activity
             android:name=".ui.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar" >
-
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" >
+
 
         </activity>
     </application>

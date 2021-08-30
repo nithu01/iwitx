@@ -26,5 +26,8 @@ interface Apiinterface {
     @POST("forgotPassword")
     suspend fun forgetpas(@Field("csrf_tkn_name")token : String, @Field("key")key : String, @Field("secret")secret : String,@Field("email")email : String):Response<com.app.iwitx.model.Response>
 
+    @FormUrlEncoded
+    @POST("profile")
+    suspend fun profile(@Field("csrf_tkn_name")token : String, @Field("key")key : String, @Field("secret")secret : String,@Field("userId")userId : String):Response<UserData>
 
 }

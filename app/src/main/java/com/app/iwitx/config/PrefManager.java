@@ -55,11 +55,11 @@ public class PrefManager {
 
     public static synchronized PrefManager getInstance(Context context) {
         if (mInstance == null) {
-            mInstance = new
-                    PrefManager(context);
+            mInstance = new PrefManager(context);
         }
         return mInstance;
     }
+
     public void userLogin(Data userData) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -76,7 +76,6 @@ public class PrefManager {
         editor.putString(KEY_AEPSW,userData.getAepsW());
         editor.putString(KEY_MATMW,userData.getMainW());
         editor.putString(KEY_COMMW, userData.getCommW());
-
         editor.putString(KEY_ADHARIMAGE,userData.getAadharImage());
         editor.putString(KEY_PANIMAGE,userData.getPanImage());
         editor.putString(KEY_PROFILEIMAGE,userData.getProfileImage());
@@ -88,34 +87,33 @@ public class PrefManager {
 
     public Data getUserData() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return new Data(sharedPreferences.getString(KEY_ID,null),
-                sharedPreferences.getString(KEY_USERID,null),
-                sharedPreferences.getString(KEY_USERTYPE,null),
-                sharedPreferences.getString(KEY_KYC_STATUS,null),
-                sharedPreferences.getString(KEY_ADDR_STATUS,null),
-                sharedPreferences.getString(KEY_BANK_STATUS,null),
-                sharedPreferences.getString(KEY_STATUS,null),
-                sharedPreferences.getString(KEY_MOBILE,null),
-                sharedPreferences.getString(KEY_EMAIL,null),
-                sharedPreferences.getString(KEY_CREATED_DATE,null),
-                sharedPreferences.getString(KEY_MAINW,null),
-                sharedPreferences.getString(KEY_AEPSW,null),
-                sharedPreferences.getString(KEY_MATMW,null),
-                sharedPreferences.getString(KEY_COMMW,null),
-
-                sharedPreferences.getString(KEY_ADHARIMAGE,null),
-                sharedPreferences.getString(KEY_PANIMAGE,null),
-                sharedPreferences.getString(KEY_PROFILEIMAGE,null),
-                sharedPreferences.getString(KEY_CHEQUEIMAGE,null),
-                sharedPreferences.getString(KEY_AEPSSTATUS,null),
-                sharedPreferences.getString(KEY_AEPSKYCSTATUS,null));
+        return new Data(sharedPreferences.getString(KEY_ID, null),
+                sharedPreferences.getString(KEY_USERID, null),
+                sharedPreferences.getString(KEY_USERTYPE, null),
+                sharedPreferences.getString(KEY_KYC_STATUS, null),
+                sharedPreferences.getString(KEY_ADDR_STATUS, null),
+                sharedPreferences.getString(KEY_BANK_STATUS, null),
+                sharedPreferences.getString(KEY_STATUS, null),
+                sharedPreferences.getString(KEY_MOBILE, null),
+                sharedPreferences.getString(KEY_EMAIL, null),
+                sharedPreferences.getString(KEY_CREATED_DATE, null),
+                sharedPreferences.getString(KEY_MAINW, null),
+                sharedPreferences.getString(KEY_AEPSW, null),
+                sharedPreferences.getString(KEY_MATMW, null),
+                sharedPreferences.getString(KEY_COMMW, null),
+                sharedPreferences.getString(KEY_ADHARIMAGE, null),
+                sharedPreferences.getString(KEY_PANIMAGE, null),
+                sharedPreferences.getString(KEY_PROFILEIMAGE, null),
+                sharedPreferences.getString(KEY_CHEQUEIMAGE, null),
+                sharedPreferences.getString(KEY_AEPSSTATUS, null),
+                sharedPreferences.getString(KEY_AEPSKYCSTATUS, null));
     }
+
     public void logout() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
-        // mCtx.startActivity(new Intent(mCtx, SplashMainActivity.class));
     }
 
 }

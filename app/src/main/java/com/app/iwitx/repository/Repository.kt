@@ -39,4 +39,11 @@ class Repository  {
         }
     }
 
+    suspend fun profile(token : String,key : String,secret : String,userId: String): Response<UserData> {
+        return withContext(Dispatchers.IO){
+            ApiClient().getApiService().profile(token,key,secret,userId);
+        }
+    }
+
+
 }

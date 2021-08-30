@@ -1,4 +1,9 @@
 <resources>
+    <string name="cash_withdrawal">Cash Withdrwal</string>
+    <string name="mini_statement">Mini Statement</string>
+    <string name="balance_enquiry">Balance Enquiry</string>
+    <string name="aadhar_pay">Aadhaar Pay</string>
+    <string name="dmt">DMT</string>
 
     <string name="app_name">iwitx</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -7,21 +12,30 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="send_otp">Send Otp</string>
     <string name="user">UserId</string>
+    <string name="services">Services</string>
+
+    <string name="logout">Logout</string>
     <string name="password">Password</string>
     <string name="register">Register</string>
     <string name="create_account">Create Account</string>
     <string name="register_user">Sign up</string>
     <string name="register_text">Don\'t have an account?</string>
     <string name="login">Login</string>
+    <string name="forget_pass">Forget Password</string>
     <string name="login_text">Please sign in to continue</string>
+
+    <string name="forget_text">Please enter email id continue</string>
+
     <string name="mobile">Mobile</string>
     <string name="type">Type</string>
+    <string name="profile">Profile</string>
+    <string name="history">History</string>
+    <string name="wallet">Wallet</string>
     <string name="OTP">OTP</string>
     <string name="email">Email</string>
     <string name="title_activity_dashboard">Dashboard</string>

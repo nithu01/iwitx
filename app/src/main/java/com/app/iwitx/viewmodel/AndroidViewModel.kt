@@ -51,6 +51,7 @@ class AndroidViewModel : ViewModel() {
 
             viewModelScope.launch {
                 val response =  datarepository.login(token.toString(), config.key, config.secret, userid, password)
+                SplashActivity.savePreferences("token", response.body()?.csrf_tkn_name);
                 authListener?.onloginsuccess(response.body())
 
             }
@@ -96,6 +97,19 @@ class AndroidViewModel : ViewModel() {
         }
         viewModelScope.launch {
             val response =  datarepository.forgetpass(token.toString(), config.key, config.secret, mobile, type, email, otp, pass)
+            authListener?.onSuccess(response.code().toString())
+        }
+
+    }
+
+    fun profile(userid: String) {
+
+        var token = SplashActivity.getPreferences("token", "")
+        if(otp.isNullOrEmpty() || pass.isNullOrEmpty() ){
+            authListener?.onFailure("Please fill credentials")
+        }
+        viewModelScope.launch {
+            val response =  datarepository.profile(token.toString(), config.key, config.secret,userid)
             authListener?.onSuccess(response.code().toString())
         }
 
