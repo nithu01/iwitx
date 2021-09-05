@@ -18,7 +18,7 @@
     <string name="send_otp">Send Otp</string>
     <string name="user">UserId</string>
     <string name="services">Services</string>
-
+    <string name="kyc">KYC</string>
     <string name="logout">Logout</string>
     <string name="password">Password</string>
     <string name="register">Register</string>
@@ -30,7 +30,16 @@
     <string name="login_text">Please sign in to continue</string>
 
     <string name="forget_text">Please enter email id continue</string>
-
+    <string name="name">Name</string>
+    <string name="dob">DOB(YYYY-MM-DD)</string>
+    <string name="gender">Gender</string>
+    <string name="aadhar">Aadhar</string>
+    <string name="pan">Pan</string>
+    <string name="state">State</string>
+    <string name="district">District</string>
+    <string name="vill">Village/City</string>
+    <string name="address">Address</string>
+    <string name="pincode">Pincode</string>
     <string name="mobile">Mobile</string>
     <string name="type">Type</string>
     <string name="profile">Profile</string>
