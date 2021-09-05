@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.app.iwitx">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,8 +13,11 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/Theme.Iwitx"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning,InnerclassSeparator,UnusedAttribute"
+        tools:replace="android:icon,android:allowBackup,android:usesCleartextTraffic">
 
         <activity
             android:name=".ui.DashboardActivity"

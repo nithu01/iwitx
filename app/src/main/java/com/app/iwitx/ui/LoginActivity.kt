@@ -1,29 +1,34 @@
 package com.app.iwitx.ui
-
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
+import android.view.View
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
-import com.app.iwitx.config.Prefmanager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.app.iwitx.AuthListener
 import com.app.iwitx.R
+import com.app.iwitx.config.Prefmanager
 import com.app.iwitx.config.SessionManager
 import com.app.iwitx.databinding.ActivityLoginBinding
 import com.app.iwitx.model.Data
 import com.app.iwitx.model.Response
 import com.app.iwitx.model.UserData
 import com.app.iwitx.viewmodel.AndroidViewModel
-import java.util.Calendar.getInstance
 
-class LoginActivity : AppCompatActivity(), AuthListener {
+class LoginActivity : AppCompatActivity(), AuthListener,View.OnClickListener {
 
     var dataModel : AndroidViewModel? =null
     var activityLoginBinding : ActivityLoginBinding ?=null
     var textView : TextView?=null
     var session: SessionManager? = null
+    var imageview: ImageView?= null
+    private var showpass = false
+    var editText: EditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +45,10 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         session = SessionManager(this@LoginActivity)
         activityLoginBinding?.data = dataModel
         dataModel?.authListener = this
-
+        imageview = findViewById(R.id.img_showpass)
         textView = findViewById(R.id.signup)
+        imageview?.setOnClickListener(this)
+        editText = findViewById(R.id.pass)
     }
 
     override fun onStarted() {
@@ -64,40 +71,40 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     }
 
     override fun onloginsuccess(data: UserData?) {
+        Toast.makeText(this@LoginActivity,""+data?.data.toString(), Toast.LENGTH_SHORT).show()
 
-        Toast.makeText(this@LoginActivity, "" + data?.message, Toast.LENGTH_SHORT).show()
-
-
-        if(data?.status == "1"){
-//           var userdata = Data(
-//               data.data.id,
-//               data.data.userId,
-//               data.data.userType,
-//               data.data.kycStatus,
-//               data.data.addrStatus,
-//               data.data.bankStatus,
-//               data.data.status,
-//               data.data.mob,
-//               data.data.email,
-//               data.data.createDate,
-//               data.data.mainW,
-//               data.data.aepsW,
-//               data.data.matmW,
-//               data.data.commW,
-//               data.data.aadharImage,
-//               data.data.panImage,
-//               data.data.profileImage,
-//               data.data.chequeImage,
-//               data.data.aepsStatus,
-//               data.data.aepsEkycStatus
-//           )
-         //   Toast.makeText(this@LoginActivity,""+userdata.id, Toast.LENGTH_SHORT).show()
+        if(data?.message == "Successful Login."){
             session!!.setLogin(true)
-          //  Prefmanager.getInstance(this@LoginActivity).userLogin(userdata)
-            startActivity(Intent(this@LoginActivity,DashboardActivity::class.java).putExtra("userId",data.data.userId))
-
+           var userdata = Data(
+               data.data.id,
+               data.data.userId
+           )
+            Prefmanager.getInstance(this@LoginActivity).userLogin(userdata)
+            startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
         }else{
             Toast.makeText(this@LoginActivity, "" + data?.message, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onClick(v: View?) {
+        if (v === imageview) {
+            val start: Int
+            val end: Int
+            if (showpass) {
+                start = editText!!.getSelectionStart()
+                end = editText!!.getSelectionEnd()
+                editText!!.setTransformationMethod(PasswordTransformationMethod())
+                editText!!.setSelection(start, end)
+                showpass = false
+                imageview!!.setImageResource(R.drawable.ic_baseline_visibility_off_24)
+            } else {
+                start = editText!!.getSelectionStart()
+                end = editText!!.getSelectionEnd()
+                editText!!.setTransformationMethod(null)
+                editText!!.setSelection(start, end)
+                showpass = true
+                imageview!!.setImageResource(R.drawable.ic_baseline_visibility_24)
+            }
         }
 
     }

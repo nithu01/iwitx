@@ -14,61 +14,57 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:padding="@dimen/DP20"
+        android:background="@color/background"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/DP10"
-            android:layout_marginTop="@dimen/DP95"
-            android:gravity="center_horizontal"
-            android:text="@string/create_account"
-            android:textColor="@color/black"
-            android:textSize="@dimen/DP30"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/DP10"
+                android:gravity="left|center"
+                android:text="@string/create_account"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/SP30"
+                android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/DP150"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/logo"/>
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/register_layout"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:layout_margin="@dimen/DP10">
+            android:layout_marginTop="@dimen/DP20">
 
-     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        app:cardCornerRadius="@dimen/DP10"
-        android:layout_marginTop="@dimen/DP60"
-        android:elevation="@dimen/DP20"
-        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="match_parent"
                 android:hint="@string/mobile"
                 android:inputType="phone"
                 android:maxLength="10"
+                android:padding="@dimen/DP10"
                 android:text="@={data.mobile}"
-                android:background="@android:color/transparent"
+                android:textColorHint="@color/text_Gray"
+                android:background="@drawable/edittext_background"
                 android:layout_height="@dimen/DP50"/>
 
-        </LinearLayout>
-
- </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        app:cardCornerRadius="@dimen/DP10"
-        android:layout_marginTop="@dimen/DP10"
-        android:elevation="@dimen/DP20"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
 
             <EditText
@@ -76,128 +72,115 @@
                 android:layout_marginTop="@dimen/DP10"
                 android:text="@={data.type}"
                 android:hint="@string/type"
-
-                android:background="@android:color/transparent"
+                android:padding="@dimen/DP10"
+                android:background="@drawable/edittext_background"
                 android:layout_height="@dimen/DP50"/>
-
-
-        </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        app:cardCornerRadius="@dimen/DP10"
-        android:layout_marginTop="@dimen/DP10"
-        android:elevation="@dimen/DP20"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/DP10"
                 android:text="@={data.email}"
-                android:background="@android:color/transparent"
+                android:padding="@dimen/DP10"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/text_Gray"
+                android:background="@drawable/edittext_background"
                 android:hint="@string/email"
                 android:layout_height="@dimen/DP50"/>
-
-        </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
 
             <Button
                 android:layout_width="@dimen/DP150"
                 android:layout_height="@dimen/DP50"
                 android:layout_gravity="right"
                 android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textSize="@dimen/SP18"
                 android:background="@drawable/button_background"
                 android:onClick="@{(v) -> data.reggister(v)}"
-                android:layout_marginTop="@dimen/DP40"
-                android:text="@string/register"/>
+                android:layout_marginTop="@dimen/DP20"
+                android:text="@string/submit"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/DP30"
             android:id="@+id/otp_layout"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-  <androidx.cardview.widget.CardView
-      android:layout_marginLeft="@dimen/DP10"
-      android:layout_marginRight="@dimen/DP10"
-        android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/DP40"
-        app:cardCornerRadius="@dimen/DP10"
-        android:elevation="@dimen/DP20"
-        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/DP10"
                 android:text="@={data.otp}"
-                android:layout_marginLeft="@dimen/DP10"
-                android:layout_marginRight="@dimen/DP10"
+                android:padding="@dimen/DP10"
                 android:hint="@string/OTP"
-                android:background="@android:color/transparent"
+                android:inputType="phone"
+                android:background="@drawable/edittext_background"
                 android:layout_height="@dimen/DP50"/>
-
-        </LinearLayout>
-
-  </androidx.cardview.widget.CardView>
-
-  <androidx.cardview.widget.CardView
-      android:layout_marginLeft="@dimen/DP10"
-      android:layout_marginRight="@dimen/DP10"
-      android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/DP10"
-        app:cardCornerRadius="@dimen/DP10"
-        android:elevation="@dimen/DP20"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
 
             <EditText
-                android:background="@android:color/transparent"
+                android:background="@drawable/edittext_background"
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/DP10"
                 android:text="@={data.pass}"
-                android:layout_marginLeft="@dimen/DP10"
-                android:layout_marginRight="@dimen/DP10"
+                android:padding="@dimen/DP10"
+                android:inputType="textPassword"
                 android:hint="@string/password"
                 android:layout_height="@dimen/DP50"/>
 
-        </LinearLayout>
 
-  </androidx.cardview.widget.CardView>
 
             <Button
-                android:layout_width="@dimen/DP150"                android:layout_height="@dimen/DP50"
+                android:layout_width="@dimen/DP150"
+                android:layout_height="@dimen/DP50"
                 android:layout_marginLeft="@dimen/DP10"
                 android:layout_gravity="right"
                 android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textSize="@dimen/SP18"
                 android:onClick="@{(v) -> data.veriftotp(v)}"
                 android:layout_marginRight="@dimen/DP10"
-                android:layout_marginTop="@dimen/DP40"
+                android:layout_marginTop="@dimen/DP20"
                 android:background="@drawable/button_background"
-                android:text="@string/send_otp"/>
+                android:text="@string/register"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/DP20"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:clickable="true"
+                android:textSize="@dimen/SP18"
+                android:layout_height="wrap_content"
+                android:text="@string/already"/>
+
+            <TextView
+                android:id="@+id/signup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/DP2"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:textSize="@dimen/SP18"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
     </LinearLayout>
-
 
 </layout>

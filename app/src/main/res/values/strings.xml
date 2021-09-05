@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="cash_withdrawal">Cash Withdrwal</string>
     <string name="mini_statement">Mini Statement</string>
     <string name="balance_enquiry">Balance Enquiry</string>
@@ -24,9 +24,16 @@
     <string name="register">Register</string>
     <string name="create_account">Create Account</string>
     <string name="register_user">Sign up</string>
-    <string name="register_text">Don\'t have an account?</string>
+    <string name="register_now">Register Now</string>
+    <string name="submit">Submit</string>
+    <string name="register_text" tools:ignore="StringEscaping">Don\'t have an account?</string>
+    <string name="firstStep" tools:ignore="StringEscaping"><br>Here's</br> <br>your first</br> <br>step with</br> <br>us!</br></string>
+    <string name="new_user">New user?</string>
     <string name="login">Login</string>
-    <string name="forget_pass">Forget Password</string>
+    <string name="already">Already have an Account?</string>
+    <string name="welcome">Welcome!</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="forget_pass">Forget Password?</string>
     <string name="login_text">Please sign in to continue</string>
 
     <string name="forget_text">Please enter email id continue</string>
